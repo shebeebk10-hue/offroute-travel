@@ -38,8 +38,11 @@ class TripAdmin(admin.ModelAdmin):
         "destination",
         "duration",
         "featured",
+        "display_order",
         "published",
     )
+
+    list_editable = ("display_order",)
 
     list_filter = (
         "featured",
@@ -109,6 +112,7 @@ class TripAdmin(admin.ModelAdmin):
             {
                 "fields": (
                     "featured",
+                    "display_order",
                     "published",
                 ),
             },

@@ -4,13 +4,16 @@ import TripDetails from "./pages/TripDetails"
 
 
 function App() {
+  const API_BASE_URL =
+    import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api"
+
   const [menuOpen, setMenuOpen] = useState(false)
   const [trips, setTrips] = useState([])
   const [siteSettings, setSiteSettings] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/trips/")
+    fetch(`${API_BASE_URL}/trips/`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Trips received from Django:", data)
@@ -23,7 +26,7 @@ function App() {
       })
 
 
-    fetch("http://127.0.0.1:8000/api/site-settings/")
+    fetch(`${API_BASE_URL}/site-settings/`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Site settings received from Django:", data)

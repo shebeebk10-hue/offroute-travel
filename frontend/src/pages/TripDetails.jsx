@@ -4,12 +4,15 @@ import { useParams } from "react-router-dom"
 function TripDetails() {
   const { slug } = useParams()
 
+  const API_BASE_URL =
+    import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api"
+
   const [trip, setTrip] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/trips/${slug}/`)
+    fetch(`${API_BASE_URL}/trips/${slug}/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Trip not found")
@@ -332,23 +335,26 @@ function TripDetails() {
 
         {/* ================= ITINERARY ================= */}
 
-        {trip.itinerary && trip.itinerary.length > 0 && (
-          <section className="px-5 sm:px-8 py-16 md:py-20 bg-black/70 backdrop-blur-sm">
+        <section className="px-5 sm:px-8 py-16 md:py-20 bg-black/70 backdrop-blur-sm">
 
-            <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto">
 
-              <div className="max-w-2xl mb-12">
+            <div className="max-w-2xl mb-12">
 
-                <p className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
-                  Your Journey
-                </p>
+              <p className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
+                Your Journey
+              </p>
 
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">
-                  Day-by-Day Itinerary
-                </h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">
+                Day-by-Day Itinerary
+              </h2>
 
-              </div>
+            </div>
 
+
+            {trip.itinerary && trip.itinerary.length > 0 ? (
+
+              /* ================= ITINERARY AVAILABLE ================= */
 
               <div className="space-y-5">
 
@@ -389,10 +395,39 @@ function TripDetails() {
 
               </div>
 
-            </div>
+            ) : (
 
-          </section>
-        )}
+              /* ================= NO ITINERARY ================= */
+
+              <div className="border border-white/10 bg-white/5 rounded-3xl p-8 sm:p-10 md:p-14 text-center">
+
+                <div className="w-14 h-14 mx-auto mb-6 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center">
+
+                  <span className="text-2xl">✦</span>
+
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-semibold mb-4">
+                  Itinerary Details Coming Soon
+                </h3>
+
+                <p className="text-gray-400 leading-relaxed max-w-xl mx-auto">
+                  Every journey with Offroute is planned with care.
+                  For the complete day-by-day itinerary and trip details,
+                  get in touch with us directly.
+                </p>
+
+                <a>
+                  Contact Us on WhatsApp
+                </a>
+
+              </div>
+
+            )}
+
+          </div>
+
+        </section>
 
 
         {/* ================= GALLERY ================= */}

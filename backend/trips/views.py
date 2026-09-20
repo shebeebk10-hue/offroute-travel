@@ -3,7 +3,9 @@ from .models import Trip, SiteSettings
 from .serializers import TripSerializer, SiteSettingsSerializer
 
 class TripListView(generics.ListAPIView):
-    queryset = Trip.objects.filter(published=True)
+    queryset = Trip.objects.filter(
+        published=True
+    ).order_by("display_order")
     serializer_class = TripSerializer
 
 

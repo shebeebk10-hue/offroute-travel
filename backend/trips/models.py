@@ -40,6 +40,9 @@ class Trip(models.Model):
 
     # Settings
     featured = models.BooleanField(default=False)
+
+    display_order = models.PositiveIntegerField(default=0)
+
     published = models.BooleanField(default=True)
 
     # Timestamps
@@ -86,13 +89,19 @@ class TripItineraryDay(models.Model):
         related_name="itinerary"
     )
 
-    day_number = models.PositiveIntegerField()
-
-    title = models.CharField(
-        max_length=200
+    day_number = models.PositiveIntegerField(
+        null=True,
+        blank=True
     )
 
-    description = models.TextField()
+    title = models.CharField(
+        max_length=200,
+        blank=True
+    )
+
+    description = models.TextField(
+        blank=True
+    )
 
     def __str__(self):
         return f"{self.trip.title} - Day {self.day_number}"
