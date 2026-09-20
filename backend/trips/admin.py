@@ -167,8 +167,9 @@ class SiteSettingsAdmin(admin.ModelAdmin):
             "Contact",
             {
                 "fields": (
-                    "whatsapp_number_1",
-                    "whatsapp_number_2",
+                    "call_number_1",
+                    "call_number_2",
+                    "whatsapp_number",
                     "instagram_username",
                     "instagram_url",
                 )

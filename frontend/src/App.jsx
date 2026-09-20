@@ -38,11 +38,14 @@ function App() {
   }, [])
 
 
-    const whatsapp1 =
-      siteSettings?.whatsapp_number_1 || "919746818189"
+    const callNumber1 =
+      siteSettings?.call_number_1 || "919746818189"
 
-    const whatsapp2 =
-      siteSettings?.whatsapp_number_2 || "918606708438"
+    const callNumber2 =
+      siteSettings?.call_number_2 || "918606708438"
+
+    const whatsappNumber =
+      siteSettings?.whatsapp_number || "919074209622"
 
     const whatsappMessage =
       "Hi Offroute! I am interested in your travel packages. Please send me the package details."
@@ -546,51 +549,75 @@ function App() {
             </p>
 
 
-            {/* ================= WHATSAPP ================= */}
+            {/* ================= CONTACT OPTIONS ================= */}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
 
-              {/* WhatsApp 1 */}
+              {/* Call Number 1 */}
 
               <a
-                href={`https://wa.me/${whatsapp1}?text=${encodeURIComponent(whatsappMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group border border-white/10 bg-white/5 rounded-2xl p-6 text-left hover:border-green-500/60 hover:bg-green-500/10 active:bg-green-500/20 transition-all duration-300"
+                href={`tel:${callNumber1}`}
+                className="group border border-white/10 bg-white/5 rounded-2xl p-6 text-left hover:border-blue-500/60 hover:bg-blue-500/10 active:bg-blue-500/20 transition-all duration-300"
               >
+
                 <p className="text-gray-400 text-sm mb-2">
-                  WhatsApp
+                  Call Us
                 </p>
 
-                <p className="text-xl font-semibold group-hover:text-green-400 transition-colors">
-                  {whatsapp1}
+                <p className="text-xl font-semibold group-hover:text-blue-400 transition-colors">
+                  {callNumber1}
                 </p>
 
-                <p className="text-green-400 text-sm mt-4">
-                  Message on WhatsApp →
+                <p className="text-blue-400 text-sm mt-4">
+                  Call Now →
                 </p>
+
               </a>
 
 
-              {/* WhatsApp 2 */}
+              {/* Call Number 2 */}
 
               <a
-                href={`https://wa.me/${whatsapp2}?text=${encodeURIComponent(whatsappMessage)}`}
+                href={`tel:${callNumber2}`}
+                className="group border border-white/10 bg-white/5 rounded-2xl p-6 text-left hover:border-blue-500/60 hover:bg-blue-500/10 active:bg-blue-500/20 transition-all duration-300"
+              >
+
+                <p className="text-gray-400 text-sm mb-2">
+                  Call Us
+                </p>
+
+                <p className="text-xl font-semibold group-hover:text-blue-400 transition-colors">
+                  {callNumber2}
+                </p>
+
+                <p className="text-blue-400 text-sm mt-4">
+                  Call Now →
+                </p>
+
+              </a>
+
+
+              {/* WhatsApp */}
+
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group border border-white/10 bg-white/5 rounded-2xl p-6 text-left hover:border-green-500/60 hover:bg-green-500/10 active:bg-green-500/20 transition-all duration-300"
               >
+
                 <p className="text-gray-400 text-sm mb-2">
                   WhatsApp
                 </p>
 
                 <p className="text-xl font-semibold group-hover:text-green-400 transition-colors">
-                  {whatsapp2}
+                  {whatsappNumber}
                 </p>
 
                 <p className="text-green-400 text-sm mt-4">
                   Message on WhatsApp →
                 </p>
+
               </a>
 
             </div>

@@ -135,12 +135,17 @@ class SiteSettings(models.Model):
     )
 
     # Contact
-    whatsapp_number_1 = models.CharField(
+    call_number_1 = models.CharField(
         max_length=20,
         blank=True
     )
 
-    whatsapp_number_2 = models.CharField(
+    call_number_2 = models.CharField(
+        max_length=20,
+        blank=True
+    )
+
+    whatsapp_number = models.CharField(
         max_length=20,
         blank=True
     )

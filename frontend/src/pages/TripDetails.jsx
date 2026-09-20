@@ -530,14 +530,7 @@ function TripDetails() {
             </p>
 
 
-            {/* WhatsApp */}
 
-            <button
-              onClick={openWhatsApp}
-              className="bg-green-600 hover:bg-green-500 hover:scale-105 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-500 shadow-lg shadow-green-900/30"
-            >
-              Enquire on WhatsApp →
-            </button>
 
           </div>
 
@@ -577,7 +570,7 @@ function TripDetails() {
                 <p className="text-xl font-semibold group-hover:text-green-400 transition-colors">
                   {trip.whatsapp_number
                     ? `+${trip.whatsapp_number}`
-                    : "+91 97468 18189"}
+                    : "+91 90742 09622"}
                 </p>
 
                 <p className="text-green-400 text-sm mt-4">
