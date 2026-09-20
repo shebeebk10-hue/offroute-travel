@@ -1,0 +1,34 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/**/**/*.pyc
+
+# Django local files
+backend/db.sqlite3
+backend/media/
+backend/staticfiles/
+
+# Backup / fixture files
+backend/data_backup.json
+backend/data_backup_utf8.json
+backend/data_backup_clean.json
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+data_backup*.json
+package-lock.json
